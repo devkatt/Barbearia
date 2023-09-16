@@ -31,24 +31,24 @@ export default () => {
   const [list, setList] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
-//   const handleLocationFinder = async () => {
-//     setCoords(null);
-//     let result =
-//       Platform.OS === "ios"
-//         ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-//         : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
+  const handleLocationFinder = async () => {
+     setCoords(null);
+     let result =
+       Platform.OS === "ios"
+         ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+         : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
 
-//     if (result == "granted") {
-//       setLoading(true);
-//       setLocationText("");
-//       setList([]);
+     if (result == "granted") {
+       setLoading(true);
+       setLocationText("");
+       setList([]);
 
-//       Geolocation.getCurrentPosition((info) => {
-//         setCoords(info.coords);
-//         getBarbers();
-//       });
-//     }
-//   };
+       Geolocation.getCurrentPosition((info) => {
+         setCoords(info.coords);
+         getBarbers();
+       });
+     }
+   };
 
   const getBarbers = async () => {
     setLoading(true);
